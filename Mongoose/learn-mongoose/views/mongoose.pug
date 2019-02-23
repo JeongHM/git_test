@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title 몽구스 서버
+    style.
+      table {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      table th, table td {
+        border: 1px solid black;
+      }
+  body
+    div
+      form#user-form
+        fieldset
+          legend 사용자 등록
+          div
+            input#address(type="text" placeholder="address")
+          div
+            input#TokenId(type="text" placeholder="TokenId")
+          div
+            input#Property(type="text" placeholder="Property")
+          div
+            input#Icx(type="number" placeholder="Icx")
+          button(type="submit") Upload
+    br
+    table#user-list
+      thead
+        tr
+          th id
+          th address
+          th TokenId
+          th Property
+          th Icx
+      tbody
+        for user in users
+          tr
+            td= user._id
+            td= user.address
+            td= user.TokenId
+            td= user.Property
+            td= user.Icx
+    script(src='/mongoose.js')
